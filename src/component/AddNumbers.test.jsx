@@ -1,5 +1,6 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import AddNumbers from "./AddNumbers"; // Adjust the import based on your file structure
+import { describe, expect, test } from "vitest";
 
 describe("AddNumbers Component", () => {
   test("renders the component with inputs and buttons", () => {
