@@ -36,6 +36,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'constructor-super': 'off',
     },
   },
 ]
