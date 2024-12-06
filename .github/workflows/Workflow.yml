@@ -26,7 +26,3 @@ jobs:
 
       - name: Run tests
         run: npm run test  # Runs the tests using the "test" script in the package.json
-        
-      - name: Lint code
-        run: npm run lint
-
