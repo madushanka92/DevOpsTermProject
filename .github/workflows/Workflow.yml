@@ -25,7 +25,7 @@ jobs:
         run: npm install  # Installs the dependencies defined in package.json
 
       - name: Run tests
-        run: npm test  # Runs the tests using the "test" script in the package.json
+        run: npm run test  # Runs the tests using the "test" script in the package.json
         
       - name: Lint code
         run: npm run lint
