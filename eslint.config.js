@@ -10,7 +10,10 @@ export default [
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 'latest', // Ensure latest JS syntax is supported
-      globals: globals.browser, // Ensure global browser variables are available
+      globals: {
+        ...globals.browser,
+        ...globals.node,  // Add Node.js globals
+      }, // Ensure global browser variables are available
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },
