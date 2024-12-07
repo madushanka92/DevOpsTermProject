@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # OS where the tests 
+    runs-on: ubuntu-latest  # OS where the tests run
     
     steps:
       - name: Checkout repository
@@ -20,6 +20,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'  # Use the appropriate Node.js version (e.g., 16.x)
+
+      - name: Remove node_modules and package-lock.json
+        run: |
+          rm -rf node_modules package-lock.json
 
       - name: Install dependencies
         run: npm install  # Installs the dependencies defined in package.json
