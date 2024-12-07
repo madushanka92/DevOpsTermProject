@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: term-project
 spec:
-  replicas: 3  # Number of pods
+  replicas: 3
   selector:
     matchLabels:
       app: term-project
@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: term-project
-        image: term-project  # Local image name
+        image: term-project:latest
+        imagePullPolicy: Never  # Important for local images
         ports:
         - containerPort: 3000
