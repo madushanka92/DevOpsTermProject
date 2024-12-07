@@ -18,7 +18,7 @@ const AddNumbers = () => {
 
   return (
     <div className="add-numbers">
-      <h2>Add Two Numbers</h2>
+      <h3>Add Two Numbers</h3>
       <div className="numbers">
         <div className="number1">
           <label htmlFor="num1">Number 1</label>
