@@ -10,7 +10,7 @@ eval $(minikube -p minikube docker-env)
 
 # Step 3: Load Jenkins-built image into Minikube
 echo "Loading the Docker image into Minikube..."
-minikube image load term-project:latest
+minikube image load term-project
 
 # Step 4: Apply Kubernetes manifests
 echo "Applying Kubernetes manifests..."
