@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Ensure we're using the correct Docker context
+# Ensure we're using the correct Docker context (for Minikube)
 docker context use minikube
 
 # Start Minikube if not running
@@ -14,20 +14,20 @@ eval $(minikube docker-env)
 echo "Current Docker context:"
 docker context show
 
-# Load the image into Minikube
-echo "Loading term-project image into Minikube..."
-docker image save term-project:latest | minikube image load -
+# Pull the image from Docker Hub (update the image tag as needed)
+echo "Pulling Docker image from Docker Hub..."
+docker pull madushanka92/term-project:latest
 
-# Verify image is loaded
-echo "Images in Minikube:"
-minikube image ls | grep term-project
+# Verify that the image was pulled
+echo "Docker image pulled:"
+docker images | grep term-project
 
 # Apply Kubernetes manifests
 echo "Applying Kubernetes manifests..."
 kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
 
-# Wait for deployment
+# Wait for deployment rollout
 echo "Waiting for deployment rollout..."
 kubectl rollout status deployment/term-project --timeout=5m
 
