@@ -30,3 +30,9 @@ jobs:
 
       - name: Run tests
         run: npm run test  # Runs the tests using the "test" script in the package.json
+
+      - name: Trigger Jenkins after workflow success
+        if: success()
+        run: |
+          curl -X POST https://cb26-2607-fea8-4ee1-8100-59a4-2bc8-c135-b9cb.ngrok-free.app/job/Trigger with GIT/build \
+          --user suminda:11ec73e022d566d8dfa9d66483fb0d5122
