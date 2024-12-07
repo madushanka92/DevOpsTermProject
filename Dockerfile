@@ -1,21 +1,27 @@
-# Step 1: Build the React Vite app
-FROM node:18 AS build
+# Use a specific Node.js version
+FROM node:18
 
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (if present)
+# Install system dependencies
+RUN apk add --no-cache git
+
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Clear npm cache and force reinstall dependencies
+RUN npm cache clean --force && \
+    rm -rf node_modules package-lock.json && \
+    npm install
 
-# Copy the rest of the app
+# Copy the rest of the project files
 COPY . .
 
-# Build the app for production
+# Build the application
 RUN npm run build
 
-# Install a simple server for serving static content
+# Install serve to run the production build
 RUN npm install -g serve
 
 # Expose the port the app runs on
