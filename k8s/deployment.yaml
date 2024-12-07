@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: term-project
+spec:
+  replicas: 3  # Number of pods
+  selector:
+    matchLabels:
+      app: term-project
+  template:
+    metadata:
+      labels:
+        app: term-project
+    spec:
+      containers:
+      - name: term-project
+        image: term-project:latest  # Local image name
+        ports:
+        - containerPort: 3000

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: term-project-service
+spec:
+  selector:
+    app: term-project
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
