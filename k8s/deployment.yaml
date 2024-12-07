@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: term-project
-        image: term-project:latest
-        imagePullPolicy: Never  # Important for local images
+        image: madushanka92/term-project:latest  # Docker Hub image
+        imagePullPolicy: Always  # Ensure the image is pulled from Docker Hub on every deployment
         ports:
         - containerPort: 3000
