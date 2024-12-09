@@ -34,5 +34,5 @@ jobs:
       - name: Trigger Jenkins after workflow success
         if: success()
         run: |
-          curl -X POST https://3315-207-35-208-162.ngrok-free.app/job/TriggerWithGIT/build \
+          curl -X POST https://7a41-207-35-208-162.ngrok-free.app/job/TriggerWithGIT/build \
           --user suminda:11ec73e022d566d8dfa9d66483fb0d5122
